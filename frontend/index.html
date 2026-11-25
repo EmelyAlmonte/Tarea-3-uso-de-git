@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestor de Tareas - CRUD</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Gestor de Tareas</h1>
+
+    <div id="mensaje" class="mensaje oculto"></div>
+
+    <form id="formTarea">
+      <input type="hidden" id="tareaId">
+
+      <label>Título
+        <input type="text" id="titulo" placeholder="Ej: Entregar tarea de Git">
+      </label>
+
+      <label>Descripción
+        <textarea id="descripcion" rows="2" placeholder="Detalles de la tarea"></textarea>
+      </label>
+
+      <div class="fila">
+        <label>Prioridad
+          <select id="prioridad">
+            <option value="Baja">Baja</option>
+            <option value="Media" selected>Media</option>
+            <option value="Alta">Alta</option>
+          </select>
+        </label>
+
+        <label>Fecha límite
+          <input type="date" id="fechaLimite">
+        </label>
+      </div>
+
+      <div class="fila">
+        <button type="submit" id="btnGuardar">Guardar tarea</button>
+        <button type="button" id="btnCancelar" class="secundario oculto">Cancelar edición</button>
+      </div>
+    </form>
+
+    <div class="filtros">
+      <input type="text" id="buscar" placeholder="Buscar por título...">
+      <select id="filtroEstado">
+        <option value="todas">Todas</option>
+        <option value="pendientes">Pendientes</option>
+        <option value="completadas">Completadas</option>
+      </select>
+      <select id="filtroPrioridad">
+        <option value="todas">Cualquier prioridad</option>
+        <option value="Alta">Alta</option>
+        <option value="Media">Media</option>
+        <option value="Baja">Baja</option>
+      </select>
+    </div>
+
+    <p id="contador"></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Estado</th>
+          <th>Título</th>
+          <th>Prioridad</th>
+          <th>Fecha límite</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="cuerpoTabla"></tbody>
+    </table>
+
+    <button id="btnLimpiar" class="peligro">Eliminar tareas completadas</button>
+  </div>
+
+  <script src="js/crear.js"></script>
+  <script src="js/listar.js"></script>
+  <script src="js/actualizar.js"></script>
+  <script src="js/eliminar.js"></script>
+</body>
+</html>
